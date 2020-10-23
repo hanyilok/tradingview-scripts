@@ -20,6 +20,7 @@ Please fill in your Slack username, Github username, and skill level:
 | @20-本科-物流-jchang274 |  jchang274   |    starting |
 | @James  | u2cc  | good  |
 | @[YinFeng](https://intellinvestors.slack.com/archives/D01717DC2LS)  | [ingf](https://github.com/ingf/)  | good  |
+| @Alpha Gong  | johanneslqq  | starting  |
 | XXX                     |     YYY      | ZZZ |
 
 
