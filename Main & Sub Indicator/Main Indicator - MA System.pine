@@ -195,12 +195,16 @@ plot(ema(close,120),linewidth=1,color=color.blue,transp=EmaSwitch,title="EMA120"
 ConAqua  = close>ema(close,20) and close>sma(close,20) and close>close[20] 
 ConBlack = close<ema(close,20) and close<sma(close,20) and close<close[20] 
 ConGray  = not(ConAqua and ConBlack)
-ChangeColorGray = (ConGray and Switch==1) ? color.silver:na
-ChangeColorAqua = (ConAqua and Switch==1) ? color.aqua:na
-ChangeColorBlack = (ConBlack and Switch==1) ? color.black:na
-barcolor(ChangeColorAqua,editable=false)
-barcolor(ChangeColorBlack,editable=false)
-barcolor(ChangeColorGray,editable=false)
+color barColor = na
+if Switch
+    if ConGray
+        barColor := color.silver
+    if ConAqua
+        barColor := color.aqua
+    if ConBlack
+        barColor := color.black
+barcolor(barColor,editable=false)
+alertcondition(barColor != barColor[1], title='Candle Color changed', message="Candle color has changed.")
 
 //==========Yellow Price Mark 抵扣价小黄点位置标记==========
 ConLeiDK = barstate.islast and DKSwitchInput==1
