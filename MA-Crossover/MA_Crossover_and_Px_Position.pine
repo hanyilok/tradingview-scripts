@@ -10,7 +10,7 @@
 ////////////////////////////////////////////////////////////
 study("2 Moving Average Cross Signals", shorttitle="MA crosses", overlay = true)
 
-//inputs
+//输入
 useMAs = input(false, title = "Show Moving Averages?")
 inprice = input(close, title="Price Source For The Moving Averages")
 fast_length = input(20, minval=1, title = "Short period MA")
@@ -20,7 +20,7 @@ resCustom = input(title="Use Different Timeframe? Uncheck Box Above", type=input
 res = useCurrentRes ? timeframe.period : resCustom
 
 
-// MA calculation
+// 设置样式
 smoothinput_fast = input(1, minval=1, maxval=4, title='Fast Moving Average Calculation: (1 = SMA), (2 = EMA), (3 = WMA), (4 = Linear)')
 smoothinput_slow = input(1, minval=1, maxval=4, title='Slow Moving Average Calculation: (1 = SMA), (2 = EMA), (3 = WMA), (4 = Linear)')
 fastMA = smoothinput_fast == 1 ? security(syminfo.ticker, res, sma(inprice, fast_length)) :
@@ -36,7 +36,9 @@ slowMA = smoothinput_slow == 1 ? security(syminfo.ticker, res, sma(inprice, slow
 
 
 // set conditions for long and short
+// 判断上穿 如果`x`的值大于`y`，则`x`系列被定义为跨越`y`系列，以及`x`的值小于紧接当前k线上的`y`的值。
 longCondition = crossover(fastMA, slowMA)
+// 判断下穿 如果`x`的值小于`y`，则`x`系列被定义为跨越`y`系列以下，以及`x`的值大于紧接当前k线上的`y`的值
 shortCondition = crossunder(fastMA, slowMA)
 
 greenBG() => fastMA>slowMA and close>fastMA
