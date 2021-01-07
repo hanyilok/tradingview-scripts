@@ -1,10 +1,10 @@
 //© u2cc
 // @version=4
 
-// Indicator #1 is an indicator labeling the downward and upward price crossover with fast MA
-// when the overall MAs are in bullish and bearish pattern respectively
-// Indicator #2 is an indicator for MA crosses.
-// There is also a background feature to indicate bearish, neutral and bullish period
+//指标＃1是使用快速移动平均线标记向下和向上价格交叉的指标
+//当整体MA分别处于看涨和看跌模式时
+//指标2是MA交叉指标。
+//还有一个背景功能可以指示看跌，中性和看涨时期
 
 
 ////////////////////////////////////////////////////////////
